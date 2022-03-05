@@ -55,7 +55,7 @@ function App() {
   };
 
   return (
-    <main className='app'>
+    <div className='app'>
       <Toolbar>
         <Button onClick={handleReplaceElement}>Generate new element</Button>
         <Button isDisabled={!undo.length} onClick={handlePopUndo}>
@@ -72,43 +72,44 @@ function App() {
         </Button>
       </Toolbar>
 
-      <section>
-        <Badge className='wrapper center'>
-          <h2 className='header'>Current Element</h2>
-        </Badge>
-        {element.currentCircle?.value && (
-          <div className='wrapper center'>
-            <Circle value={element.currentCircle?.value}></Circle>
+      <main>
+        <section>
+          <Badge className='wrapper center'>
+            <h2 className='header'>Current Element</h2>
+          </Badge>
+          {element.currentCircle?.value && (
+            <div className='wrapper center'>
+              <Circle value={element.currentCircle?.value}></Circle>
+            </div>
+          )}
+        </section>
+        <section className='wide'>
+          <Badge className='wrapper center'>
+            <h1>History</h1>
+          </Badge>
+          <div className='border'>
+            <Badge className='wrapper center'>
+              <h2 className='header'>Undo</h2>
+            </Badge>
+            <Rectangle>
+              {undo.map(({ value }) => (
+                <Circle key={value} value={value}></Circle>
+              ))}
+            </Rectangle>
           </div>
-        )}
-      </section>
-      <Badge className='wrapper center'>
-        <h1>History</h1>
-      </Badge>
-      <section>
-        <div className='border'>
-          <Badge className='wrapper center'>
-            <h2 className='header'>Undo</h2>
-          </Badge>
-          <Rectangle>
-            {undo.map(({ value }) => (
-              <Circle key={value} value={value}></Circle>
-            ))}
-          </Rectangle>
-        </div>
-
-        <div className='border'>
-          <Badge className='wrapper center'>
-            <h2 className='header'>Redo</h2>
-          </Badge>
-          <Rectangle>
-            {redo.map(({ value }) => (
-              <Circle key={value} value={value}></Circle>
-            ))}
-          </Rectangle>
-        </div>
-      </section>
-    </main>
+          <div className='border'>
+            <Badge className='wrapper center'>
+              <h2 className='header'>Redo</h2>
+            </Badge>
+            <Rectangle>
+              {redo.map(({ value }) => (
+                <Circle key={value} value={value}></Circle>
+              ))}
+            </Rectangle>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
 

@@ -10,8 +10,21 @@ section {
   background-color: #a58dff;
 }
 
+section:nth-of-type(1) {
+  margin-right: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
 .center {
   margin: 0 auto;
+}
+
+.wide {
+  width: 100%;
 }
 
 .border {
