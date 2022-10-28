@@ -1,0 +1,16 @@
+.button {
+  padding: 1rem 2rem;
+  background-color: #1d1ce5;
+  font-size: 1rem;
+  color: white;
+  border-radius: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #7978ff;
+  color: #d0d0d0;
+}

@@ -1,0 +1,30 @@
+.app {
+  width: 100%;
+  padding: 2rem 5rem;
+}
+
+section {
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+  background-color: #a58dff;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.border {
+  border-radius: 1rem;
+  border: 0.3rem solid #a58dff;
+  margin-bottom: 1rem;
+}
+
+.wrapper {
+  display: block;
+  padding: 1rem;
+  width: max-content;
+  border-radius: 1rem;
+  background-color: #4649ff;
+  margin-bottom: 1rem;
+}
