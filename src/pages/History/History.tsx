@@ -17,7 +17,7 @@ import Toolbar from '../../components/Toolbar/Toolbar';
 import Button from '../../components/Button/Button';
 import Badge from '../../components/Badge/Badge';
 
-function App() {
+function AlternateView() {
   const {
     element,
     history: { undo, redo },
@@ -74,21 +74,6 @@ function App() {
 
       <main className='history-block__main'>
         <section className='history-section'>
-          <div className='history-section__main-header'>
-            <Badge className='history-section__badge history-section__badge_center history-section__badge_wide'>
-              <h1>Current Element</h1>
-            </Badge>
-          </div>
-          <div className='history-section__element history-section__element_center'>
-            <Circle value={element.currentCircle?.value}></Circle>
-          </div>
-        </section>
-        <section className='history-section'>
-          <div className='history-section__main-header'>
-            <Badge className='history-section__badge history-section__badge_center history-section__badge_wide'>
-              <h1>History</h1>
-            </Badge>
-          </div>
           <div>
             <div className='history-section__secondary-header'>
               <Badge className='history-section__badge history-section__badge_center history-section__badge_narrow'>
@@ -101,6 +86,20 @@ function App() {
               ))}
             </Rectangle>
           </div>
+        </section>
+        <section className='history-section'>
+          <div className='history-section__secondary-header'>
+            <Badge className='history-section__badge history-section__badge_center history-section__badge_wide'>
+              <h2>Current Element</h2>
+            </Badge>
+          </div>
+          <Rectangle>
+            <div className='history-section__element'>
+              <Circle value={element.currentCircle?.value}></Circle>
+            </div>
+          </Rectangle>
+        </section>
+          <section className='history-section'>
           <div>
             <div className='history-section__secondary-header'>
               <Badge className='history-section__badge history-section__badge_center history-section__badge_narrow'>
@@ -119,4 +118,4 @@ function App() {
   );
 }
 
-export default App;
+export default AlternateView;
