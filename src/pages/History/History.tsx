@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import Circle from '@/components/Circle/Circle';
-import { idIterator } from '@/utils/idIterator';
-import { StoreDispatch, StoreState } from '@/context/store';
+import Circle from '../../components/Circle/Circle';
+import { idIterator } from '../../utils/idIterator';
+import { StoreDispatch, StoreState } from '../../context/store';
 import { newCurrentElement, replaceCurrentElement } from '../../context/element/elementSlice';
 import Rectangle from '../../components/Rectangle/Rectangle';
 import './styles.css';
