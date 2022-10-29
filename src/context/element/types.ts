@@ -3,5 +3,5 @@ export interface CircleElement {
 }
 
 export interface CircleState {
-  currentCircle: CircleElement | undefined;
+  currentCircle: CircleElement;
 }

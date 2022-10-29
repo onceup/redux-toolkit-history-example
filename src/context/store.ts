@@ -5,10 +5,7 @@ import {
   TypedStartListening,
 } from '@reduxjs/toolkit';
 import historyReducer, { addUndo } from './history/historySlice';
-import elementReducer, {
-  newCurrentElement,
-  replaceCurrentElement,
-} from './element/elementSlice';
+import elementReducer, { newCurrentElement } from './element/elementSlice';
 
 type StoreStartListening = TypedStartListening<StoreState, StoreDispatch>;
 const listenerMiddleware = createListenerMiddleware();

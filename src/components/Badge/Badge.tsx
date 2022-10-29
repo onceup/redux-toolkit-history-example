@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 import { BadgeProps } from './types';
 import './styles.css';
 

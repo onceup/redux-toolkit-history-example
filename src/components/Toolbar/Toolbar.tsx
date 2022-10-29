@@ -1,9 +1,10 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC } from 'react';
+import { ToolbarProps } from './types';
 import './styles.css';
 
-const Toolbar: FC<PropsWithChildren> = ({ children }) => {
+const Toolbar: FC<ToolbarProps> = ({ children, className }) => {
   return (
-    <div className='toolbar'>
+    <div className={`${className} toolbar`}>
       {React.Children.map(children, (child) => (
         <div className='toolbar__button'>{child}</div>
       ))}

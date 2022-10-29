@@ -24,8 +24,8 @@ function App() {
   } = useSelector((state: StoreState) => state);
   const dispatch = useDispatch<StoreDispatch>();
 
-  const handleReplaceElement = () => {
-    let id: number = 0;
+  const handleGenerateElement = () => {
+    let id = 0;
     const newId = idIterator.next();
     if (!newId.done) id = newId.value;
 
@@ -55,14 +55,14 @@ function App() {
   };
 
   return (
-    <div className='app'>
-      <Toolbar>
-        <Button onClick={handleReplaceElement}>Generate new element</Button>
+    <div className='history-block'>
+      <Toolbar className='history-block__toolbar'>
+        <Button onClick={handleGenerateElement}>Generate new element</Button>
         <Button isDisabled={!undo.length} onClick={handlePopUndo}>
-          Pop undo
+          Undo
         </Button>
         <Button isDisabled={!redo.length} onClick={handlePopRedo}>
-          Pop redo
+          Redo
         </Button>
         <Button
           isDisabled={!redo.length && !undo.length}
@@ -72,35 +72,41 @@ function App() {
         </Button>
       </Toolbar>
 
-      <main>
-        <section>
-          <Badge className='wrapper center'>
-            <h2 className='header'>Current Element</h2>
-          </Badge>
-          {element.currentCircle?.value && (
-            <div className='wrapper center'>
-              <Circle value={element.currentCircle?.value}></Circle>
-            </div>
-          )}
-        </section>
-        <section className='wide'>
-          <Badge className='wrapper center'>
-            <h1>History</h1>
-          </Badge>
-          <div className='border'>
-            <Badge className='wrapper center'>
-              <h2 className='header'>Undo</h2>
+      <main className='history-block__main'>
+        <section className='history-section'>
+          <div className='history-section__main-header'>
+            <Badge className='history-section__badge history-section__badge_center history-section__badge_wide'>
+              <h1>Current Element</h1>
             </Badge>
+          </div>
+          <div className='history-section__element history-section__element_center'>
+            <Circle value={element.currentCircle?.value}></Circle>
+          </div>
+        </section>
+        <section className='history-section'>
+          <div className='history-section__main-header'>
+            <Badge className='history-section__badge history-section__badge_center history-section__badge_wide'>
+              <h1>History</h1>
+            </Badge>
+          </div>
+          <div>
+            <div className='history-section__secondary-header'>
+              <Badge className='history-section__badge history-section__badge_center history-section__badge_narrow'>
+                <h2>Undo history stack</h2>
+              </Badge>
+            </div>
             <Rectangle>
               {undo.map(({ value }) => (
                 <Circle key={value} value={value}></Circle>
               ))}
             </Rectangle>
           </div>
-          <div className='border'>
-            <Badge className='wrapper center'>
-              <h2 className='header'>Redo</h2>
-            </Badge>
+          <div>
+            <div className='history-section__secondary-header'>
+              <Badge className='history-section__badge history-section__badge_center history-section__badge_narrow'>
+                <h2>Redo history stack</h2>
+              </Badge>
+            </div>
             <Rectangle>
               {redo.map(({ value }) => (
                 <Circle key={value} value={value}></Circle>
