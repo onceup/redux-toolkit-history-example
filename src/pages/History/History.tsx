@@ -2,17 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Circle from '@/components/Circle/Circle';
 import { idIterator } from '@/utils/idIterator';
 import { StoreDispatch, StoreState } from '@/context/store';
-import {
-  newCurrentElement,
-  replaceCurrentElement,
-} from '../../context/element/elementSlice';
+import { newCurrentElement, replaceCurrentElement } from '../../context/element/elementSlice';
 import Rectangle from '../../components/Rectangle/Rectangle';
 import './styles.css';
-import {
-  clearHistory,
-  popRedo,
-  popUndo,
-} from '../../context/history/historySlice';
+import { clearHistory, popRedo, popUndo } from '../../context/history/historySlice';
 import Toolbar from '../../components/Toolbar/Toolbar';
 import Button from '../../components/Button/Button';
 import Badge from '../../components/Badge/Badge';
@@ -55,8 +48,8 @@ function AlternateView() {
   };
 
   return (
-    <div className='history-block'>
-      <Toolbar className='history-block__toolbar'>
+    <div className="history-block">
+      <Toolbar className="history-block__toolbar">
         <Button onClick={handleGenerateElement}>Generate new element</Button>
         <Button isDisabled={!undo.length} onClick={handlePopUndo}>
           Undo
@@ -64,19 +57,16 @@ function AlternateView() {
         <Button isDisabled={!redo.length} onClick={handlePopRedo}>
           Redo
         </Button>
-        <Button
-          isDisabled={!redo.length && !undo.length}
-          onClick={handleClearHistory}
-        >
+        <Button isDisabled={!redo.length && !undo.length} onClick={handleClearHistory}>
           Clear history
         </Button>
       </Toolbar>
 
-      <main className='history-block__main'>
-        <section className='history-section'>
+      <main className="history-block__main">
+        <section className="history-section">
           <div>
-            <div className='history-section__secondary-header'>
-              <Badge className='history-section__badge history-section__badge_center history-section__badge_narrow'>
+            <div className="history-section__secondary-header">
+              <Badge className="history-section__badge history-section__badge_center history-section__badge_narrow">
                 <h2>Undo history stack</h2>
               </Badge>
             </div>
@@ -87,26 +77,26 @@ function AlternateView() {
             </Rectangle>
           </div>
         </section>
-        <section className='history-section'>
-          <div className='history-section__secondary-header'>
-            <Badge className='history-section__badge history-section__badge_center history-section__badge_wide'>
+        <section className="history-section">
+          <div className="history-section__secondary-header">
+            <Badge className="history-section__badge history-section__badge_center history-section__badge_wide">
               <h2>Current Element</h2>
             </Badge>
           </div>
           <Rectangle>
-            <div className='history-section__element'>
+            <div className="history-section__element">
               <Circle value={element.currentCircle?.value}></Circle>
             </div>
           </Rectangle>
         </section>
-          <section className='history-section'>
+        <section className="history-section">
           <div>
-            <div className='history-section__secondary-header'>
-              <Badge className='history-section__badge history-section__badge_center history-section__badge_narrow'>
+            <div className="history-section__secondary-header">
+              <Badge className="history-section__badge history-section__badge_center history-section__badge_narrow">
                 <h2>Redo history stack</h2>
               </Badge>
             </div>
-            <Rectangle>
+            <Rectangle className="history-section__rectangle_reverse">
               {redo.map(({ value }) => (
                 <Circle key={value} value={value}></Circle>
               ))}

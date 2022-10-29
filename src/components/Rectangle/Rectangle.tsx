@@ -1,8 +1,9 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
+import { RecangleProps } from './types';
 import './styles.css';
 
-const Rectangle: FC<PropsWithChildren> = ({ children }) => {
-  return <div className='rectangle'>{children}</div>;
+const Rectangle: FC<RecangleProps> = ({ className, children }) => {
+  return <div className={`${className} rectangle`}>{children}</div>;
 };
 
 export default Rectangle;

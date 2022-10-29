@@ -18,12 +18,12 @@
   background-color: #a58dff;
 }
 
-.history-section:nth-child(odd)  {
-  width: 40%
+.history-section:nth-child(odd) {
+  width: 40%;
 }
 
-.history-section:nth-child(even)  {
-  width: 20%
+.history-section:nth-child(even) {
+  width: 20%;
 }
 
 .history-section:not(:last-child) {
@@ -61,6 +61,10 @@
 
 .history-section__element_center {
   margin: 0 auto;
+}
+
+.history-section__rectangle_reverse {
+  flex-direction: row-reverse;
 }
 
 .history-section__secondary-header {
