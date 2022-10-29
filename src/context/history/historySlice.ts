@@ -24,23 +24,18 @@ export const historySlice = createSlice({
       const { newRedo } = action.payload;
       state.redo.push(newRedo);
     },
-    popUndo: (
-      state,
-      action: PayloadAction<{ currentCircle: CircleElement }>
-    ) => {
+    popUndo: (state, action: PayloadAction<{ currentCircle: CircleElement }>) => {
       const { currentCircle } = action.payload;
       const poppedItem = state.undo.pop();
       poppedItem && state.redo.push(currentCircle);
     },
-    popRedo: (
-      state,
-      action: PayloadAction<{ currentCircle: CircleElement }>
-    ) => {
+    popRedo: (state, action: PayloadAction<{ currentCircle: CircleElement }>) => {
       const { currentCircle } = action.payload;
       const poppedItem = state.redo.pop();
       poppedItem && state.undo.push(currentCircle);
     },
   },
+  //Here we are listening for dispatching action 'newCurrentElement' and clearing redo state after it's dispatch
   extraReducers: (builder) => {
     builder.addCase(newCurrentElement, (state) => {
       state.redo = [];
@@ -48,7 +43,6 @@ export const historySlice = createSlice({
   },
 });
 
-export const { clearHistory, addUndo, addRedo, popUndo, popRedo } =
-  historySlice.actions;
+export const { clearHistory, addUndo, addRedo, popUndo, popRedo } = historySlice.actions;
 
 export default historySlice.reducer;
