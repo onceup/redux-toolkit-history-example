@@ -1,5 +1,5 @@
 function* infiniteSequence() {
-  let i: number = 2;
+  let i = 2;
   while (true) {
     yield i++;
   }

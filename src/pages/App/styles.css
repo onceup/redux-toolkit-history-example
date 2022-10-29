@@ -1,43 +1,70 @@
-.app {
+.history-block {
   width: 100%;
   padding: 2rem 5rem;
 }
 
-section {
-  padding: 1rem;
-  border-radius: 1rem;
-  margin-bottom: 3rem;
-  background-color: #a58dff;
-}
-
-section:nth-of-type(1) {
-  margin-right: 1rem;
-}
-
-main {
+.history-block__main {
   display: flex;
   flex-direction: row;
 }
 
-.center {
-  margin: 0 auto;
+.history-block__toolbar {
+  margin-bottom: 2rem;
 }
 
-.wide {
+.history-section {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #a58dff;
+}
+
+.history-section:last-child {
   width: 100%;
 }
 
-.border {
+.history-section:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.history-section__badge {
+  display: block;
+  padding: 1rem;
   border-radius: 1rem;
-  border: 0.3rem solid #a58dff;
+  background-color: #4649ff;
+  margin-bottom: 3rem;
+}
+
+.history-section__badge_center {
+  margin: 0 auto;
+}
+
+.history-section__badge_wide {
+  width: 100%;
+}
+
+.history-section__badge_narrow {
+  width: max-content;
+}
+
+.history-section__main-header {
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
-.wrapper {
+.history-section__element {
   display: block;
   padding: 1rem;
   width: max-content;
   border-radius: 1rem;
   background-color: #4649ff;
   margin-bottom: 1rem;
+}
+
+.history-section__element_center {
+  margin: 0 auto;
+}
+
+.history-section__secondary-header {
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
 }

@@ -1,8 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {
-  newCurrentElement,
-  replaceCurrentElement,
-} from '../element/elementSlice';
+import { newCurrentElement } from '../element/elementSlice';
 import { CircleElement } from '../element/types';
 import { HistoryState } from './types';
 
